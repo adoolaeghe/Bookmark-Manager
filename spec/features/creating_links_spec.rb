@@ -1,3 +1,5 @@
+require 'database_cleaner'
+
 feature 'creating new links' do
   scenario 'redirect to add a link' do
     visit('/links')
