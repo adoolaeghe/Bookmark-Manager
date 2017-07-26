@@ -12,5 +12,10 @@ class BMWeb < Sinatra::Base
     erb :'links/link_new'
   end
 
+  post '/new_link' do
+    Link.create(url: params[:url], title: params[:title])
+    redirect '/links'
+  end
+
   run! if app_file == $0
 end
