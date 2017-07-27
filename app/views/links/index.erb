@@ -4,11 +4,11 @@
   <li>
     Title:  <%= link.title %>
     URL:    <%= link.url %>
-    Tag:    <%= link.tags.map(&:name).join %>
+    Tag:    <%= link.tags.map(&:name).join(' Tag: ') %>
   </li>
   <% end %>
  </ul>
 
- <form action='/link_new' method='get'>
+ <form action='/links/new' method='get'>
    <input type='submit' value='add link'>
  </form>

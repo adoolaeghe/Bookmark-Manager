@@ -13,19 +13,16 @@ class BMWeb < Sinatra::Base
     erb :'links/index'
   end
 
-  get '/link_new' do
+  get '/links/new' do
     erb :'links/link_new'
   end
 
-  post '/new_link' do
+  post '/new/link' do
     link = Link.new(url: params[:url], title: params[:title])
     @tags = []
     params[:tags].split(' ').each do |tag|
       link.tags << Tag.first_or_create(name: tag)
     end
-    # @tags.each do |tag|
-    #   link.tags << tag
-    # end
     link.save
     redirect '/links'
   end
