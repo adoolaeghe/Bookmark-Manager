@@ -5,7 +5,11 @@ require_relative 'data_mapper_setup.rb'
 
 class BMWeb < Sinatra::Base
   get '/' do
-    redirect '/links'
+    redirect '/sign_up'
+  end
+
+  get '/sign_up' do
+  erb :'sign_up/sign_up'
   end
 
   get '/links' do
@@ -15,6 +19,10 @@ class BMWeb < Sinatra::Base
 
   get '/links/new' do
     erb :'links/link_new'
+  end
+
+  post 'sign_up' do
+    redirect '/links'
   end
 
   post '/new/link' do
